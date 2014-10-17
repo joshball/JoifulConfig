@@ -30,5 +30,15 @@
   "directories": {
     "example": "examples",
     "test": "test"
-  }
+  },
+  "keywords": [
+    "configuration",
+    "config",
+    "setup",
+    "configure",
+    "settings",
+    "templating",
+    "joi",
+    "nunjucks"
+  ]
 }
