@@ -1,5 +1,5 @@
 {
-  "name": "JoifulConfig",
+  "name": "joiful-config",
   "version": "1.0.0",
   "description": "Configuration using nunjucks templating, Joi validations, and separation of physical from logical environments",
   "author": "Joshua Ball <joshua.g.s.ball@gmail.com> (https://github.com/joshball)",
