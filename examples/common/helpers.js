@@ -1,7 +1,9 @@
 'use strict';
+var path = require('path');
 
-var getEnvironmentArray = function(obj){
-    return Object.keys(obj);
+var getEnvironmentArray = function(){
+    var environmentsConfig = require(path.resolve('./config/environments'));
+    return Object.keys(environmentsConfig.environments);
 };
 
 var setEnvironmentVars = function(env){

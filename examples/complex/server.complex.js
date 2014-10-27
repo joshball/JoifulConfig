@@ -2,11 +2,11 @@
 var util = require('util');
 
 var joifulConfig = require('../../lib/index');
-var environmentsConfig = require('./config/environments');
+
 
 var helpers = require('../common/helpers');
 
-var envArray = helpers.getEnvironmentArray(environmentsConfig.environments);
+var envArray = helpers.getEnvironmentArray();
 
 var options = require('nomnom')
     .option('debug', {
@@ -28,6 +28,7 @@ var options = require('nomnom')
 
 helpers.setEnvironmentVars(options.env);
 
+
 // override environment
 var config = joifulConfig(options.env, {debug: options.debug});
 
@@ -36,7 +37,7 @@ var config = joifulConfig(options.env, {debug: options.debug});
 //
 //  var config = joifulConfig(); // uses process.env.NODE_ENV
 //  var config = joifulConfig('production'); // explicitly with string
-//  var config = joifulConfig({ settings: 'prod', dep: 'production' }); // FUTURE: using settings/dep
+//  var config = joifulConfig({ behavior: 'prod', dep: 'production' }); // FUTURE: using behavior/dep
 //  var config = joifulConfig('production', { configDir: './myConfigDir'}); // with an override configuration
 
 joifulConfig.log.dumpObject('config.modules', config.modules);
