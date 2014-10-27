@@ -1,4 +1,4 @@
-var settings ={
+var behaviors ={
     server: {
         prod: { shutdownTimeout: 3 * 1000 }
     },
@@ -18,4 +18,4 @@ var settings ={
     }
 };
 
-module.exports = settings;
+module.exports = behaviors;

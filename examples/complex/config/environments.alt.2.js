@@ -1,14 +1,14 @@
 var joifulConfig = require('../../../lib/index');
-var envBuilders = joifulConfig.envBuilder;
+var envBuilder = joifulConfig.envBuilder;
 
 //
 // Use the environment builder to define:
 // 1. Dependency Tags (these have to do with the location of the dependencies (servernames/creds))
 // 2. Settings Tags (this has to do with the way the code should work (logging/timeouts)
-// 3. Environments => this is a combination of dependencies and settings, using inheritance
+// 3. Environments => this is a combination of dependencies and behaviors, using inheritance
 //
 
-var dependencyTags = envBuilders.createTags([
+var dependencyTags = envBuilder.createTags([
     {name:'production'},
     {name:'stage', parent: 'production'},
     {name:'development', parent: 'stage'},
@@ -16,24 +16,24 @@ var dependencyTags = envBuilders.createTags([
     {name:'localTest', parent: 'local'}
 ]);
 
-var settingsTags = envBuilders.createTags([
+var behaviorTags = envBuilder.createTags([
     {name:'prod'},
     {name:'test', parent: 'prod'},
     {name:'dev', parent: 'test'}
 ]);
 
-var environments = envBuilders.createEnvironments({
-    'production':   { settings: 'prod', dep: 'production' },
-    'stage':        { settings: 'prod', dep: 'stage' },
-    'development':  { settings: 'dev',  dep: 'development' },
-    'local.dev':    { settings: 'dev',  dep: 'local' },
-    'local.test':   { settings: 'test', dep: 'localTest' }
+var environments = envBuilder.createEnvironments({
+    'production':   { behaviors: 'prod', dep: 'production' },
+    'stage':        { behaviors: 'prod', dep: 'stage' },
+    'development':  { behaviors: 'dev',  dep: 'development' },
+    'local.dev':    { behaviors: 'dev',  dep: 'local' },
+    'local.test':   { behaviors: 'test', dep: 'localTest' }
 });
 
-envBuilders.validate(environments, dependencyTags, settingsTags);
+envBuilder.validate(environments, dependencyTags, behaviorTags);
 
 module.exports = {
     environments: environments,
     dependencyTags: dependencyTags,
-    settingsTags: settingsTags
+    behaviorTags: behaviorTags
 };

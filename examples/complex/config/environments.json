@@ -1,0 +1,21 @@
+{
+    "dependencyTags": [
+        {"name":"production"},
+        {"name":"stage", "parent": "production"},
+        {"name":"development", "parent": "stage"},
+        {"name":"local", "parent": "development"},
+        {"name":"localTest", "parent": "local"}
+    ],
+    "behaviorTags": [
+        {"name":"prod"},
+        {"name":"test", "parent": "prod"},
+        {"name":"dev", "parent": "test"}
+    ],
+    "environments": {
+        "production":   { "behavior": "prod", "dependency": "production" },
+        "stage":        { "behavior": "prod", "dependency": "stage" },
+        "development":  { "behavior": "dev",  "dependency": "development" },
+        "local.dev":    { "behavior": "dev",  "dependency": "local" },
+        "local.test":   { "behavior": "test", "dependency": "localTest" }
+    }
+}
