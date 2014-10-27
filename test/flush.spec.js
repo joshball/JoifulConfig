@@ -140,7 +140,7 @@ describe('joifulConfig:', function () {
 
         describe('tag', function () {
 
-            it('should have only prod settings', function (done) {
+            it('should have only prod behaviors', function (done) {
 
                 var config = {
                     server: DEP.server
@@ -160,7 +160,7 @@ describe('joifulConfig:', function () {
                 done();
             });
 
-            it('should have only test settings', function (done) {
+            it('should have only test behaviors', function (done) {
 
                 var config = {
                     server: DEP.server
@@ -180,7 +180,7 @@ describe('joifulConfig:', function () {
                 done();
             });
 
-            it('should have only dev settings', function (done) {
+            it('should have only dev behaviors', function (done) {
 
                 var config = {
                     server: DEP.server

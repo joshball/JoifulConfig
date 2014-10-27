@@ -16,7 +16,7 @@ describe('joifulConfig:', function () {
         describe('number values', function () {
             it('should render string values through template engine and resolve correctly', function (done) {
                 var objToProcess = {
-                    gandalf: { age: 150, ageTempl: '{{ gandalf.age }}',ageDot: '##:gandalf.age' }
+                    gandalf: { age: 150, ageTempl: '{{ gandalf.age }}', ageDot: '##:gandalf.age' }
                 };
 
                 processObject(objToProcess);
